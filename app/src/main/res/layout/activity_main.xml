@@ -13,4 +13,10 @@
         android:layout_height="wrap_content"
         android:text="@string/btn_view_list"/>
 
+    <Button
+        android:id="@+id/btnRecylerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_recyler_view"/>
+
 </LinearLayout>
