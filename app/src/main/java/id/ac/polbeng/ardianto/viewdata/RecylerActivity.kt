@@ -21,10 +21,10 @@ class RecylerActivity : AppCompatActivity() {
         binding = ActivityRecylerBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val adapter = BuahAdapter(dataBuah, dataGambar)
-        //buat layout manaager
+        val adapter = BuahAdapter(this, dataBuah, dataGambar)
+
         val layoutManager = LinearLayoutManager(applicationContext)
-        //manggil listnya
+
         binding.recylerView.adapter = adapter
         binding.recylerView.layoutManager = layoutManager
     }

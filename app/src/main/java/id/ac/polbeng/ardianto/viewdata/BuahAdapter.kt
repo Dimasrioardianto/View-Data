@@ -1,11 +1,14 @@
 package id.ac.polbeng.ardianto.viewdata
 
+import android.app.Activity
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import id.ac.polbeng.ardianto.viewdata.databinding.ListItemBinding
 
 class BuahAdapter (
+    private val context: Activity,
     private val dataBuah: Array<String>,
     private val dataGambar: Array<Int>) : RecyclerView.Adapter<BuahAdapter.BuahHolder>() {
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BuahHolder {
@@ -16,6 +19,12 @@ class BuahAdapter (
         override fun onBindViewHolder(holder: BuahHolder, position: Int) {
             holder.binding.tvNamaBuah.text = dataBuah.get(position)
             holder.binding.imgBuah.setImageResource(dataGambar[position])
+            holder.itemView.setOnClickListener {
+                val intent = Intent(context, DetailBuahActivity::class.java)
+                intent.putExtra("nama", dataBuah.get(position))
+                intent.putExtra("gambar", dataGambar.get(position))
+                context.startActivity(intent)
+            }
         }
 
         override fun getItemCount(): Int = dataBuah.size
